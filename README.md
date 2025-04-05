@@ -69,10 +69,13 @@ npm run build
 ## 使用说明
 
 1. 注册/登录账户
-2. 创建新的旅行计划
-3. 添加行程、清单项目和预算信息
-4. 在日历视图或列表视图中管理所有旅行
-5. 查看详情页面管理单个旅行的各项内容
+  默认用户：
+    email: 'demo@example.com',
+    password: 'password123',
+3. 创建新的旅行计划
+4. 添加行程、清单项目和预算信息
+5. 在日历视图或列表视图中管理所有旅行
+6. 查看详情页面管理单个旅行的各项内容
 
 ## 项目结构
 
@@ -81,3 +84,19 @@ npm run build
 - `src/services/` - API服务和外部集成
 - `src/assets/` - 静态资源文件
 - `src/firebase.js` - Firebase配置
+![image](https://github.com/user-attachments/assets/7d9d849e-9f55-4584-9127-0c11876674e2)
+![image](https://github.com/user-attachments/assets/afc2ee26-ce77-4987-9fc9-5318bb50d0ce)
+![image](https://github.com/user-attachments/assets/c8309bbe-7afc-402e-b9b2-72670538995f)
+![image](https://github.com/user-attachments/assets/a074d3a3-51c7-4cbb-8679-e46050cfaf30)
+![image](https://github.com/user-attachments/assets/928a1aa0-fa71-4b25-8f9b-a399691ce789)
+![image](https://github.com/user-attachments/assets/870e3c58-05a5-4b16-bacf-1d5c0f26a3f4)
+![image](https://github.com/user-attachments/assets/c0ac9536-9cf5-46e2-938e-e5d3a7f624a5)
+![image](https://github.com/user-attachments/assets/ae757f33-ef25-4379-9000-69a3802d014d)
+![image](https://github.com/user-attachments/assets/6e8a38f1-5b44-473d-addf-0ae235abaf2d)
+![image](https://github.com/user-attachments/assets/73d0dd63-d26a-4c26-a9fc-67748dd9474a)
+
+
+
+
+
+
