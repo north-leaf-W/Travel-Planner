@@ -84,6 +84,9 @@ npm run build
 - `src/services/` - API服务和外部集成
 - `src/assets/` - 静态资源文件
 - `src/firebase.js` - Firebase配置
+
+## 项目截图
+
 ![image](https://github.com/user-attachments/assets/7d9d849e-9f55-4584-9127-0c11876674e2)
 ![image](https://github.com/user-attachments/assets/afc2ee26-ce77-4987-9fc9-5318bb50d0ce)
 ![image](https://github.com/user-attachments/assets/c8309bbe-7afc-402e-b9b2-72670538995f)
