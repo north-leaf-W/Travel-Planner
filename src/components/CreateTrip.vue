@@ -268,7 +268,7 @@
 </template>
 
 <script>
-import { ref, reactive, computed, onMounted, nextTick } from 'vue';
+import { ref, reactive, computed, onMounted, nextTick, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { ElMessage } from 'element-plus';
 import { useTripStore } from '../stores/tripStore';
@@ -341,17 +341,30 @@ export default {
             ]
         };
         
-        // 禁用过去日期
+        // 禁用过去日期和晚于返回日期的日期
         const disablePastDates = (date) => {
-            return date < new Date(new Date().setHours(0, 0, 0, 0));
+            // 禁用过去的日期
+            const isPastDate = date < new Date(new Date().setHours(0, 0, 0, 0));
+            
+            // 如果已经选择了返回日期，则禁用晚于返回日期的日期
+            if (tripData.endDate) {
+                return isPastDate || date > tripData.endDate;
+            }
+            
+            return isPastDate;
         };
         
         // 禁用无效的结束日期（早于开始日期）
         const disableInvalidEndDates = (date) => {
-            if (!tripData.startDate) {
-                return disablePastDates(date);
+            // 禁用过去的日期
+            const isPastDate = date < new Date(new Date().setHours(0, 0, 0, 0));
+            
+            // 如果已经选择了出发日期，则禁用早于出发日期的日期
+            if (tripData.startDate) {
+                return isPastDate || date < tripData.startDate;
             }
-            return date < tripData.startDate;
+            
+            return isPastDate;
         };
         
         // 禁用无效的行程日期（早于开始日期或晚于结束日期）
@@ -761,6 +774,23 @@ export default {
                 console.error('初始化组件时出错:', error);
             }
         };
+        
+        // 监听出发日期和返回日期的变化
+        watch(() => tripData.startDate, (newStartDate) => {
+            // 如果新的出发日期晚于返回日期，清空返回日期
+            if (newStartDate && tripData.endDate && new Date(newStartDate) > new Date(tripData.endDate)) {
+                tripData.endDate = '';
+                ElMessage.warning('出发日期晚于返回日期，已清空返回日期');
+            }
+        });
+        
+        watch(() => tripData.endDate, (newEndDate) => {
+            // 如果新的返回日期早于出发日期，清空出发日期
+            if (newEndDate && tripData.startDate && new Date(newEndDate) < new Date(tripData.startDate)) {
+                tripData.startDate = '';
+                ElMessage.warning('返回日期早于出发日期，已清空出发日期');
+            }
+        });
         
         onMounted(() => {
             // 使用nextTick确保DOM已更新后再执行初始化

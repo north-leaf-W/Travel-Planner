@@ -36,7 +36,9 @@ const mockDestinations = {
                 address: '北京市前门大街30号',
                 description: '创建于1864年的老字号，以烤鸭闻名于世。',
                 color: '#f56c6c',
-                price: '¥¥¥'
+                price: '¥¥¥',
+                cuisine: '北京菜',
+                priceRange: '300-500元/人'
             },
             {
                 name: '南锣鼓巷小吃街',
@@ -44,7 +46,9 @@ const mockDestinations = {
                 address: '北京市东城区南锣鼓巷',
                 description: '汇集了各种北京传统小吃，是品尝京味美食的好去处。',
                 color: '#e6a23c',
-                price: '¥'
+                price: '¥',
+                cuisine: '北京小吃',
+                priceRange: '50-100元/人'
             }
         ],
         tips: [
@@ -88,7 +92,9 @@ const mockDestinations = {
                 address: '上海市黄浦区豫园老街南翔馒头店',
                 description: '百年老店，以灌汤小笼包驰名中外。',
                 color: '#f56c6c',
-                price: '¥¥'
+                price: '¥¥',
+                cuisine: '上海本帮菜',
+                priceRange: '80-150元/人'
             },
             {
                 name: '西郊国宾馆',
@@ -96,7 +102,9 @@ const mockDestinations = {
                 address: '上海市长宁区虹桥路1599号',
                 description: '享有盛誉的粤菜餐厅，招牌菜有片皮鸭和红烧大虾。',
                 color: '#e6a23c',
-                price: '¥¥¥'
+                price: '¥¥¥',
+                cuisine: '粤菜',
+                priceRange: '300-600元/人'
             }
         ],
         tips: [
@@ -132,7 +140,9 @@ const mockDestinations = {
                 address: '广州市荔湾区龙津西路151号',
                 description: '百年老字号，以粤菜和点心著称。',
                 color: '#f56c6c',
-                price: '¥¥'
+                price: '¥¥',
+                cuisine: '粤菜',
+                priceRange: '150-300元/人'
             },
             {
                 name: '陶陶居',
@@ -140,7 +150,9 @@ const mockDestinations = {
                 address: '广州市越秀区上下九步行街81号',
                 description: '创办于1880年的老字号，以早茶和点心闻名。',
                 color: '#e6a23c',
-                price: '¥¥'
+                price: '¥¥',
+                cuisine: '粤式点心',
+                priceRange: '100-200元/人'
             }
         ],
         tips: [
@@ -176,7 +188,9 @@ const mockDestinations = {
                 address: '香港特别行政区佐敦白加士街47-49号地下',
                 description: '世界上最便宜的米其林星级餐厅之一，以港式点心著称。',
                 color: '#f56c6c',
-                price: '¥¥'
+                price: '¥¥',
+                cuisine: '港式点心',
+                priceRange: '100-200港币/人'
             },
             {
                 name: '镛记烧鹅',
@@ -184,7 +198,9 @@ const mockDestinations = {
                 address: '香港特别行政区中环士丹利街34-38号',
                 description: '米其林星级餐厅，以烧鹅和烧肉闻名。',
                 color: '#e6a23c',
-                price: '¥¥'
+                price: '¥¥',
+                cuisine: '粤菜烧腊',
+                priceRange: '150-300港币/人'
             }
         ],
         tips: [
@@ -228,7 +244,9 @@ const mockDestinations = {
                 address: '埃菲尔铁塔2楼',
                 description: '位于埃菲尔铁塔上的高档餐厅，提供现代法式料理和巴黎全景。',
                 image: new URL('../assets/recommendations/beijing_forbidden_city.jpg', import.meta.url).href,
-                price: '¥¥¥'
+                price: '¥¥¥',
+                cuisine: '现代法式料理',
+                priceRange: '200-400欧元/人'
             },
             {
                 name: 'Café de Flore',
@@ -236,7 +254,9 @@ const mockDestinations = {
                 address: '圣日耳曼大道172号',
                 description: '历史悠久的巴黎咖啡馆，曾是文人墨客和哲学家的聚集地。',
                 image: new URL('../assets/recommendations/beijing_great_wall.jpg', import.meta.url).href,
-                price: '¥¥'
+                price: '¥¥',
+                cuisine: '法式咖啡馆',
+                priceRange: '30-60欧元/人'
             }
         ],
         tips: [
@@ -280,7 +300,9 @@ const mockDestinations = {
                 address: '东京都中央区筑地市场内',
                 description: '位于著名的筑地鱼市场内，提供最新鲜的寿司。',
                 image: new URL('../assets/recommendations/shanghai_bund.jpg', import.meta.url).href,
-                price: '¥¥¥'
+                price: '¥¥¥',
+                cuisine: '寿司',
+                priceRange: '15000-30000日元/人'
             },
             {
                 name: '一兰拉面',
@@ -288,7 +310,9 @@ const mockDestinations = {
                 address: '东京都涩谷区多处分店',
                 description: '来自福冈的著名拉面连锁店，以其独特的浓厚猪骨汤底闻名。',
                 image: new URL('../assets/recommendations/shanghai_disney.jpg', import.meta.url).href,
-                price: '¥¥'
+                price: '¥¥',
+                cuisine: '日式拉面',
+                priceRange: '1000-1500日元/人'
             }
         ],
         tips: [
@@ -332,7 +356,9 @@ const mockDestinations = {
                 address: '纽约下东区休斯顿街205号',
                 description: '百年老店，以巨大的熏牛肉三明治闻名。',
                 image: new URL('../assets/recommendations/guangzhou_tower.jpg', import.meta.url).href,
-                price: '¥¥'
+                price: '¥¥',
+                cuisine: '美式熟食店',
+                priceRange: '20-35美元/人'
             },
             {
                 name: 'Shake Shack',
@@ -340,7 +366,9 @@ const mockDestinations = {
                 address: '曼哈顿多处分店',
                 description: '源自纽约的著名汉堡连锁店，以高品质汉堡和奶昔闻名。',
                 image: new URL('../assets/recommendations/guangzhou_chen_clan.jpg', import.meta.url).href,
-                price: '¥'
+                price: '¥',
+                cuisine: '美式快餐',
+                priceRange: '10-20美元/人'
             }
         ],
         tips: [
@@ -384,7 +412,9 @@ const mockDestinations = {
                 address: '悉尼圆形码头海外客运站上层',
                 description: '悉尼顶级餐厅，提供创新的澳大利亚美食，可欣赏歌剧院和港湾美景。',
                 image: new URL('../assets/recommendations/hongkong_victoria.jpg', import.meta.url).href,
-                price: '¥¥¥'
+                price: '¥¥¥',
+                cuisine: '创新澳式料理',
+                priceRange: '250-400澳元/人'
             },
             {
                 name: 'Harry\'s Café de Wheels',
@@ -392,7 +422,9 @@ const mockDestinations = {
                 address: '澳大利亚新南威尔士州Woolloomooloo',
                 description: '悉尼著名的派餐车，提供澳式肉饼和热狗。',
                 image: new URL('../assets/recommendations/hongkong_peak.jpg', import.meta.url).href,
-                price: '¥'
+                price: '¥',
+                cuisine: '澳式快餐',
+                priceRange: '10-20澳元/人'
             }
         ],
         tips: [
