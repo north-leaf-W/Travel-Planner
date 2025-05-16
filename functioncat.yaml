@@ -24,7 +24,7 @@ envs:
   dev:
     branch: develop # 开发环境对应的 Git 分支 (您可以根据实际情况修改，例如 'dev' 或 'main')
   prod:
-    branch: main   # 生产环境对应的 Git 分支 (通常是 'main' 或 'master')
+    branch: master   # 生产环境对应的 Git 分支 (通常是 'main' 或 'master')
 
 routes:
   main_env: prod # 主要部署环境指向 prod
