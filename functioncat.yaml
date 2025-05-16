@@ -28,10 +28,10 @@ envs:
 
 routes:
   main_env: prod # 主要部署环境指向 prod
-  main_app: travel-planner-ui # 主要应用指向下面定义的 travel-planner-ui
+  main_app: plannerui # 主要应用指向下面定义的 plannerui
 
 apps:
-  travel-planner-ui: # 前端应用的唯一标识名
+  plannerui: # 前端应用的唯一标识名
     type: web_frontend # 应用类型：Web 前端
     envs:
       dev: # 开发环境配置
