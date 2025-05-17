@@ -1,67 +1,133 @@
-system: 1.0.0
-info:
-  name: travel-planner # 项目名称
-  description: "一个基于Vue 3和Element Plus的旅行计划管理应用，帮助用户规划和管理他们的旅行计划。" # 项目描述
-  vars:
-    # Firebase 配置变量, 您需要在部署平台的设置中填写实际的值
-    # 这些值通常从 Firebase 项目的设置 -> 常规 -> 您的应用 -> SDK 设置和配置 中获取
-    FIREBASE_API_KEY:
-      description: "Firebase API Key。从 Firebase 控制台的项目设置中获取。"
-    FIREBASE_AUTH_DOMAIN:
-      description: "Firebase Auth Domain。从 Firebase 控制台的项目设置中获取。"
-    FIREBASE_DATABASE_URL:
-      description: "Firebase Realtime Database URL。从 Firebase 控制台的项目设置中获取。"
-    FIREBASE_PROJECT_ID:
-      description: "Firebase Project ID。从 Firebase 控制台的项目设置中获取。"
-    FIREBASE_STORAGE_BUCKET:
-      description: "Firebase Storage Bucket。从 Firebase 控制台的项目设置中获取。"
-    FIREBASE_MESSAGING_SENDER_ID:
-      description: "Firebase Messaging Sender ID。从 Firebase 控制台的项目设置中获取。"
-    FIREBASE_APP_ID:
-      description: "Firebase App ID。从 Firebase 控制台的项目设置中获取。"
-
-envs:
-  dev:
-    branch: develop # 开发环境对应的 Git 分支 (您可以根据实际情况修改，例如 'dev' 或 'main')
-  prod:
-    branch: master   # 生产环境对应的 Git 分支 (通常是 'main' 或 'master')
-
-routes:
-  main_env: prod # 主要部署环境指向 prod
-  main_app: plannerui # 主要应用指向下面定义的 plannerui
-
-apps:
-  plannerui: # 前端应用的唯一标识名
-    type: web_frontend # 应用类型：Web 前端
-    envs:
-      dev: # 开发环境配置
-        build:
-          root_path: . # 项目根目录 (package.json 所在目录)
-          script: "npm install; npm run build" # 构建命令 (先安装依赖，然后执行构建)
-        provision:
-          root_path: dist # Vite 构建后静态文件的输出目录
-          type: nodejs18x # 部署预置类型。这里假设使用 Node.js 环境来服务静态文件。
-                           # 如果您的平台支持纯静态网站部署，可以修改为此类型 (例如 'static')。
-        vars: # 注入到此环境的环境变量 (Vite 在客户端代码中通过 import.meta.env.VITE_XXX 访问)
-          VITE_FIREBASE_API_KEY: ${{vars.FIREBASE_API_KEY}}
-          VITE_FIREBASE_AUTH_DOMAIN: ${{vars.FIREBASE_AUTH_DOMAIN}}
-          VITE_FIREBASE_DATABASE_URL: ${{vars.FIREBASE_DATABASE_URL}}
-          VITE_FIREBASE_PROJECT_ID: ${{vars.FIREBASE_PROJECT_ID}}
-          VITE_FIREBASE_STORAGE_BUCKET: ${{vars.FIREBASE_STORAGE_BUCKET}}
-          VITE_FIREBASE_MESSAGING_SENDER_ID: ${{vars.FIREBASE_MESSAGING_SENDER_ID}}
-          VITE_FIREBASE_APP_ID: ${{vars.FIREBASE_APP_ID}}
-      prod: # 生产环境配置
-        build:
-          root_path: .
-          script: "npm install; npm run build"
-        provision:
-          root_path: dist
-          type: nodejs18x # 同上
-        vars: # 同上
-          VITE_FIREBASE_API_KEY: ${{vars.FIREBASE_API_KEY}}
-          VITE_FIREBASE_AUTH_DOMAIN: ${{vars.FIREBASE_AUTH_DOMAIN}}
-          VITE_FIREBASE_DATABASE_URL: ${{vars.FIREBASE_DATABASE_URL}}
-          VITE_FIREBASE_PROJECT_ID: ${{vars.FIREBASE_PROJECT_ID}}
-          VITE_FIREBASE_STORAGE_BUCKET: ${{vars.FIREBASE_STORAGE_BUCKET}}
-          VITE_FIREBASE_MESSAGING_SENDER_ID: ${{vars.FIREBASE_MESSAGING_SENDER_ID}}
-          VITE_FIREBASE_APP_ID: ${{vars.FIREBASE_APP_ID}}
+2025-05-17 00:20:49
+=== S2 - build. ===
+2025-05-17 00:20:49
+no before script provided
+2025-05-17 00:20:54
+added 89 packages, and audited 90 packages in 4s
+2025-05-17 00:20:54
+22 packages are looking for funding
+  run `npm fund` for details
+2025-05-17 00:20:54
+3 vulnerabilities (2 high, 1 critical)
+To address issues that do not require attention, run:
+  npm audit fix
+Some issues need review, and may require choosing
+a different dependency.
+Run `npm audit` for details.
+2025-05-17 00:20:55
+installing dependencies
+2025-05-17 00:20:55
+Python version set to 3.8
+2025-05-17 00:20:55
+Downloading and installing node v18.20.8...
+2025-05-17 00:20:56
+Downloading https://nodejs.org/dist/v18.20.8/node-v18.20.8-linux-arm64.tar.xz...
+2025-05-17 00:20:57
+Computing checksum with sha256sum
+2025-05-17 00:20:57
+Checksums matched!
+2025-05-17 00:20:59
+Now using node v18.20.8 (npm v10.8.2)
+2025-05-17 00:20:59
+Enabling Node.js Corepack
+2025-05-17 00:20:59
+Started restoring cached build plugins
+2025-05-17 00:20:59
+Finished restoring cached build plugins
+2025-05-17 00:20:59
+Attempting Ruby version 2.7.2, read from environment
+2025-05-17 00:21:00
+Using Ruby version 2.7.2
+2025-05-17 00:21:00
+Using PHP version 8.0
+2025-05-17 00:21:00
+Started restoring cached corepack dependencies
+2025-05-17 00:21:00
+mv: cannot move '/opt/buildhome/cache/.node/corepack' to '/opt/buildhome/.node/corepack': No such file or directory
+2025-05-17 00:21:00
+Finished restoring cached corepack dependencies
+2025-05-17 00:21:00
+No npm workspaces detected
+2025-05-17 00:21:00
+Started restoring cached node modules
+2025-05-17 00:21:01
+Finished restoring cached node modules
+2025-05-17 00:21:01
+Installing npm packages using npm version 10.8.2
+2025-05-17 00:22:40
+added 271 packages, and audited 272 packages in 2m
+2025-05-17 00:22:40
+53 packages are looking for funding
+  run `npm fund` for details
+2025-05-17 00:22:41
+13 moderate severity vulnerabilities
+To address all issues, run:
+  npm audit fix
+Run `npm audit` for details.
+2025-05-17 00:22:41
+npm packages installed
+Creating package sha
+2025-05-17 00:22:41
+Installing Hugo 0.85.0
+2025-05-17 00:22:44
+/opt/build-bin/run-build-functions.sh: line 729: /opt/buildhome/cache/.binrc-5cce58fb8b4914d5e697f9912afce97e27d646c9/binaries/gohugoio/hugo/v0.85.0/hugo: cannot execute binary file: Exec format error
+2025-05-17 00:22:44
+Started restoring cached go cache
+2025-05-17 00:22:44
+Finished restoring cached go cache
+2025-05-17 00:22:47
+go version go1.19.13 linux/arm64
+2025-05-17 00:22:47
+installing missing commands
+2025-05-17 00:22:47
+verify run directory
+2025-05-17 00:22:47
+executing user command: npm install; npm run build
+2025-05-17 00:22:49
+up to date, audited 272 packages in 2s
+2025-05-17 00:22:49
+53 packages are looking for funding
+  run `npm fund` for details
+2025-05-17 00:22:50
+13 moderate severity vulnerabilities
+To address all issues, run:
+  npm audit fix
+Run `npm audit` for details.
+2025-05-17 00:22:50
+> travel-planner@0.0.0 build
+> vite build
+2025-05-17 00:22:50
+/opt/buildhome/repo/node_modules/rollup/dist/native.js:64
+		throw new Error(
+		      ^
+Error: Cannot find module @rollup/rollup-linux-arm64-gnu. npm has a bug related to optional dependencies (https://github.com/npm/cli/issues/4828). Please try `npm i` again after removing both package-lock.json and node_modules directory.
+    at requireWithFriendlyError (/opt/buildhome/repo/node_modules/rollup/dist/native.js:64:9)
+    at Object.<anonymous> (/opt/buildhome/repo/node_modules/rollup/dist/native.js:73:76)
+    ... 3 lines matching cause stack trace ...
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:203:29)
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:337:24) {
+  [cause]: Error: Cannot find module '@rollup/rollup-linux-arm64-gnu'
+  Require stack:
+  - /opt/buildhome/repo/node_modules/rollup/dist/native.js
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+      at Module._load (node:internal/modules/cjs/loader:981:27)
+      at Module.require (node:internal/modules/cjs/loader:1231:19)
+      at require (node:internal/modules/helpers:177:18)
+      at requireWithFriendlyError (/opt/buildhome/repo/node_modules/rollup/dist/native.js:46:10)
+      at Object.<anonymous> (/opt/buildhome/repo/node_modules/rollup/dist/native.js:73:76)
+      at Module._compile (node:internal/modules/cjs/loader:1364:14)
+      at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+      at Module.load (node:internal/modules/cjs/loader:1203:32)
+      at Module._load (node:internal/modules/cjs/loader:1019:12) {
+    code: 'MODULE_NOT_FOUND',
+    requireStack: [ '/opt/buildhome/repo/node_modules/rollup/dist/native.js' ]
+  }
+}
+Node.js v18.20.8
+2025-05-17 00:22:50
+run build before script  and script npm install; npm run build failed, script error: 
+ exit status 1
+2025-05-17 00:22:50
+build failed
